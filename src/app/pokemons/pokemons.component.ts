@@ -24,6 +24,12 @@ export class PokemonsComponent implements OnInit {
   }
 
   public searchPokemon() {
-  }
+    const { searchParameter } = this.searchForm.value
 
+    if (searchParameter) {
+      this.pokemonsService.getByIdOrName(searchParameter).subscribe(resp => console.log(resp))
+    } else {
+      this.pokemonsService.get().subscribe(pokemons => this.pokemons = pokemons)
+    }
+  }
 }

@@ -7,7 +7,7 @@
       <form [formGroup]='searchForm' novalidate class='m-2' (ngSubmit)="searchPokemon()">
         <div class='form-group col-sm-12 col-md-6 col-lg-4 pl-0'>
           <label for='searchParameter' class="mr-2">Id / Name</label>
-          <input autofocus id='searchParameter' class='form-control w-75' tipe='number' placeholder='id or name'>
+          <input autofocus id='searchParameter' formControlName='searchParameter' class='form-control w-75' tipe='number' placeholder='id or name'>
         </div>
         <p-button type='submit' label='Search'></p-button>
       </form>
