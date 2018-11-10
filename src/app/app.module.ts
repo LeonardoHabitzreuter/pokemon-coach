@@ -5,7 +5,8 @@ import { RouterModule, PreloadAllModules } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 
 import { TabMenuModule } from 'primeng/tabmenu'
-import { ButtonModule } from 'primeng/button';
+import { ButtonModule } from 'primeng/button'
+import { TableModule } from 'primeng/table'
 
 import { SharedModule } from 'shared/module'
 import { ROUTES } from './app.routes'
@@ -24,6 +25,7 @@ import { PokemonsComponent } from './pokemons/pokemons.component'
     HttpClientModule,
     TabMenuModule,
     ButtonModule,
+    TableModule,
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],

@@ -4,16 +4,12 @@
     <div class="card-body">
       <h4 class="card-title">Filters</h4>
       <hr>
-      <form [formGroup]='searchForm' novalidate class='form-inline'>
-        <div class='form-group col-sm-12 col-md-3 m-2'>
-          <label for='id' class="mr-2">Id</label>
-          <input autofocus id='id' class='form-control w-75' tipe='number' placeholder='id'>
+      <form [formGroup]='searchForm' novalidate class='m-2' (ngSubmit)="searchPokemon()">
+        <div class='form-group col-sm-12 col-md-6 col-lg-4 pl-0'>
+          <label for='searchParameter' class="mr-2">Id / Name</label>
+          <input autofocus id='searchParameter' class='form-control w-75' tipe='number' placeholder='id or name'>
         </div>
-        <div class='form-group col-sm-12 col-md-3 m-2'>
-          <label for='name'class="mr-2">Name</label>
-          <input id='name' class='form-control w-75' tipe='text' placeholder='name'>
-        </div>
-        <p-button type='submit' label='Pesquisar'></p-button>
+        <p-button type='submit' label='Search'></p-button>
       </form>
     </div>
   </article>
@@ -21,6 +17,20 @@
     <div class="card-body">
       <h4 class="card-title">Results</h4>
       <hr>
+      <p-table [value]="pokemons">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Url</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-pokemon>
+          <tr>
+            <td>{{pokemon.name}}</td>
+            <td><a target="_blank" [href]="pokemon.url">{{pokemon.url}}</a></td>
+          </tr>
+        </ng-template>
+      </p-table>
     </div>
   </article>
 </section>
