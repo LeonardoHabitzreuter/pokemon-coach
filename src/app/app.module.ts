@@ -1,27 +1,31 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { MenuModule } from 'primeng/menu';
-import { TabMenuModule } from 'primeng/tabmenu';
+import { BrowserModule } from '@angular/platform-browser'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { NgModule } from '@angular/core'
+import { RouterModule, PreloadAllModules } from '@angular/router'
+import { HttpClientModule } from '@angular/common/http'
 
-import { AppComponent } from './app.component';
-import { PokemonsComponent } from './pokemons/pokemons.component';
-import { CoachComponent } from './coach/coach.component';
-import { ROUTES } from './app.routes';
+import { TabMenuModule } from 'primeng/tabmenu'
+import { ButtonModule } from 'primeng/button';
+
+import { SharedModule } from 'shared/module'
+import { ROUTES } from './app.routes'
+
+import { AppComponent } from './app.component'
+import { PokemonsComponent } from './pokemons/pokemons.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonsComponent,
-    CoachComponent
+    PokemonsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MenuModule,
+    HttpClientModule,
     TabMenuModule,
-    RouterModule.forRoot(ROUTES)
+    ButtonModule,
+    SharedModule.forRoot(),
+    RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
   providers: [],
   bootstrap: [AppComponent]

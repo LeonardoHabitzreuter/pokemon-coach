@@ -1,9 +1,13 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="../favicon.ico">
-</div>
-<p-tabMenu [model]="menuItems"></p-tabMenu>
-<router-outlet></router-outlet>
-
+<header>
+  <div class='text-center'>
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <img width='300' alt='Angular Logo' src='../favicon.ico'>
+  </div>
+</header>
+<p-tabMenu [model]='menuItems' [activeItem]='menuItems[0]'></p-tabMenu>
+<main class='p-5'><router-outlet></router-outlet></main>
+<footer class='fixed-bottom bg-light text-muted text-center p-4'>
+  <em>Pokémons coach project! &copy;2018 Created by Leonardo Habitzreuter</em>
+</footer>
