@@ -1,3 +1,26 @@
-<p>
-  pokemons works!
-</p>
+<app-content-header title="Pokémons"></app-content-header>
+<section>
+  <article class="card">
+    <div class="card-body">
+      <h4 class="card-title">Filters</h4>
+      <hr>
+      <form [formGroup]='searchForm' novalidate class='form-inline'>
+        <div class='form-group col-sm-12 col-md-3 m-2'>
+          <label for='id' class="mr-2">Id</label>
+          <input autofocus id='id' class='form-control w-75' tipe='number' placeholder='id'>
+        </div>
+        <div class='form-group col-sm-12 col-md-3 m-2'>
+          <label for='name'class="mr-2">Name</label>
+          <input id='name' class='form-control w-75' tipe='text' placeholder='name'>
+        </div>
+        <p-button type='submit' label='Pesquisar'></p-button>
+      </form>
+    </div>
+  </article>
+  <article class="card mt-4">
+    <div class="card-body">
+      <h4 class="card-title">Results</h4>
+      <hr>
+    </div>
+  </article>
+</section>
