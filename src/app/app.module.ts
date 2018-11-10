@@ -14,12 +14,14 @@ import { ROUTES } from './app.routes'
 import { AppComponent } from './app.component'
 import { NotFoundComponent } from './not-found/not-found.component'
 import { PokemonsComponent } from './pokemons/pokemons.component'
+import { PokemonModalComponent } from './pokemons/modal/component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    PokemonsComponent
+    PokemonsComponent,
+    PokemonModalComponent
   ],
   imports: [
     BrowserModule,

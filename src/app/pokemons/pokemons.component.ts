@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 import { PokemonsService } from './pokemons.service'
 import { Pokemon } from './pokemon'
@@ -12,12 +12,13 @@ import { Pokemon } from './pokemon'
 export class PokemonsComponent implements OnInit {
   searchForm: FormGroup
   pokemons: Pokemon[]
+  pokemon: Pokemon
 
   constructor(private pokemonsService: PokemonsService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
-      searchParameter: this.formBuilder.control('')
+      searchParameter: this.formBuilder.control('', [Validators.required])
     })
 
     this.pokemonsService.get().subscribe(pokemons => this.pokemons = pokemons)
@@ -27,7 +28,7 @@ export class PokemonsComponent implements OnInit {
     const { searchParameter } = this.searchForm.value
 
     if (searchParameter) {
-      this.pokemonsService.getByIdOrName(searchParameter).subscribe(resp => console.log(resp))
+      this.pokemonsService.getByIdOrName(searchParameter).subscribe(pokemon => this.pokemon = pokemon)
     } else {
       this.pokemonsService.get().subscribe(pokemons => this.pokemons = pokemons)
     }
