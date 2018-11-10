@@ -1,16 +1,21 @@
 <app-content-header title="Pokémons"></app-content-header>
 <section>
-  <article class="card">
-    <div class="card-body">
-      <h4 class="card-title">Filters</h4>
+  <article>
+    <div class="card card-body">
+      <div class="d-flex justify-content-between">
+        <h4 class="card-title">To search a pokémon</h4>
+        <i class="pi pi-fw pi-plus cursor-pointer" data-toggle="collapse" href="#filtersBody" role="button" aria-expanded="false" aria-controls="filtersBody"></i>
+      </div>
       <hr>
-      <form [formGroup]='searchForm' novalidate class='m-2' (ngSubmit)="searchPokemon()">
-        <div class='form-group col-sm-12 col-md-6 col-lg-4 pl-0'>
-          <label for='searchParameter' class="mr-2">Id / Name</label>
-          <input autofocus id='searchParameter' formControlName='searchParameter' class='form-control w-75' tipe='number' placeholder='id or name'>
-        </div>
-        <p-button type='submit' label='Search'></p-button>
-      </form>
+      <div id="filtersBody" class="collapse">
+        <form [formGroup]='searchForm' novalidate class='m-2' (ngSubmit)="searchPokemon()">
+          <div class='form-group col-sm-12 col-md-6 col-lg-4 pl-0'>
+            <label for='searchParameter' class="mr-2">Id / Name</label>
+            <input autofocus id='searchParameter' formControlName='searchParameter' class='form-control w-75' tipe='number' placeholder='id or name'>
+          </div>
+          <p-button type='submit' label='Search'></p-button>
+        </form>
+      </div>
     </div>
   </article>
   <article class="card mt-4">
