@@ -7,7 +7,7 @@ import { Pokemon } from './pokemon'
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
-  styleUrls: ['./pokemons.component.css']
+  styleUrls: []
 })
 export class PokemonsComponent implements OnInit {
   searchForm: FormGroup
