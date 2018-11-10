@@ -11,6 +11,7 @@ import { Pokemon } from './pokemon'
 export class PokemonsService {
   // this code was commented because the api pagination is broken
   // private searchParams: HttpParams
+  public totalRecords: number
 
   constructor (private http: HttpClient) {
     // this code was commented because the api pagination is broken
@@ -19,7 +20,10 @@ export class PokemonsService {
 
   public get (skip = 0): Observable<Pokemon[]> {
     return this.http.get(POKEMONS_API).pipe(
-      map((data: any) => take(10, drop(skip, data.results)))
+      map((data: any) => {
+        this.totalRecords = data.results.length
+        return take(10, drop(skip, data.results))
+      })
     )
   }
 

@@ -13,15 +13,17 @@ export class PokemonsComponent implements OnInit {
   searchForm: FormGroup
   pokemons: Pokemon[]
   pokemon: Pokemon
+  totalRecords = 10
 
-  constructor(private pokemonsService: PokemonsService, private formBuilder: FormBuilder) { }
+  constructor(private pokemonsService: PokemonsService, private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
       searchParameter: this.formBuilder.control('', [Validators.required])
     })
 
-    this.pokemonsService.get().subscribe(pokemons => this.pokemons = pokemons)
+    this.updateGrid()
   }
 
   public searchPokemon() {
@@ -30,7 +32,14 @@ export class PokemonsComponent implements OnInit {
     if (searchParameter) {
       this.pokemonsService.getByIdOrName(searchParameter).subscribe(pokemon => this.pokemon = pokemon)
     } else {
-      this.pokemonsService.get().subscribe(pokemons => this.pokemons = pokemons)
+      this.updateGrid()
     }
+  }
+
+  private updateGrid () {
+    this.pokemonsService.get().subscribe(pokemons => {
+      this.pokemons = pokemons
+      this.totalRecords = this.pokemonsService.totalRecords
+    })
   }
 }

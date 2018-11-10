@@ -4,9 +4,8 @@ import { NgModule } from '@angular/core'
 import { RouterModule, PreloadAllModules } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 
-import { TabMenuModule } from 'primeng/tabmenu'
-import { ButtonModule } from 'primeng/button'
 import { TableModule } from 'primeng/table'
+import { TabMenuModule } from 'primeng/tabmenu'
 
 import { SharedModule } from 'shared/module'
 import { ROUTES } from './app.routes'
@@ -27,9 +26,8 @@ import { PokemonModalComponent } from './pokemons/modal/component'
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    TabMenuModule,
-    ButtonModule,
     TableModule,
+    TabMenuModule,
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
