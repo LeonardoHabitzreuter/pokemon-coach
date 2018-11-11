@@ -9,10 +9,10 @@
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Actions</th>
             <th>Base experience</th>
             <th>Height</th>
             <th>Weight</th>
+            <th>Actions</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-pokemon>
@@ -22,7 +22,7 @@
             <td>{{pokemon.base_experience}}</td>
             <td>{{pokemon.height}}</td>
             <td>{{pokemon.weight}}</td>
-            <td><i (click)="removePokemon(pokemon.id)" class="pi pi-times text-danger cursor-pointer"></i></td>
+            <td><i (click)="removePokemon(pokemon.id)" class="fas fa-times text-danger cursor-pointer"></i></td>
           </tr>
         </ng-template>
       </p-table>

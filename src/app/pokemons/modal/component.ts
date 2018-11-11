@@ -6,7 +6,7 @@ import { MessageService } from 'primeng/api'
 @Component({
   selector: 'app-pokemon-modal',
   templateUrl: './component.html',
-  providers: []
+  styleUrls: ['./component.scss']
 })
 export class PokemonModalComponent {
   @Input() pokemon: Pokemon

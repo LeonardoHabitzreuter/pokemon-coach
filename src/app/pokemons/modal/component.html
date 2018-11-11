@@ -3,13 +3,50 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="pokemonModalLabel">{{ pokemon?.id }} - {{ pokemon?.name }}</h5>
+          <h5 class="modal-title text-uppercase" id="pokemonModalLabel"><strong>{{pokemon?.name}}</strong></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <img class="d-block" [src]="pokemon?.sprites?.front_default" alt="pokemonImg">
+          <div class="d-flex justify-content-around">
+            <img [src]="pokemon?.sprites?.front_default" alt="pokemonImg">
+            <img [src]="pokemon?.sprites?.back_default" alt="pokemonImg">
+            <img [src]="pokemon?.sprites?.front_shiny" alt="pokemonImg">
+            <img [src]="pokemon?.sprites?.back_shiny" alt="pokemonImg">
+          </div>
+          <div class="pokemon-details bg-light mx-2 mb-3 p-3">
+            <div class="row">
+              <div class="col-6 d-flex flex-column">
+                <strong>Id:</strong>
+                <label>{{pokemon?.id}}</label>
+              </div>
+              <div class="col-6 d-flex flex-column">
+                <strong>Base experience:</strong>
+                <label>{{pokemon?.base_experience}}</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex flex-column">
+                <strong>Height:</strong>
+                <label>{{pokemon?.height}}</label>
+              </div>
+              <div class="col-6 d-flex flex-column">
+                <strong>Weight:</strong>
+                <label>{{pokemon?.weight}}</label>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center">
+              <i class="fab fa-superpowers"></i>
+              <strong class="mx-1">Skills</strong>
+              <i class="fas fa-magic"></i>
+            </div>
+            <div *ngFor="let skill of pokemon?.abilities">
+              <i class="fas fa-tag dark-yellow m-2"></i>
+              <strong>{{skill.ability.name}}</strong>
+            </div>
+          </div>
           <p-button type="button" label="Add to favorites" class="float-right" (click)="favoritePokemon()"></p-button>
         </div>
       </div>

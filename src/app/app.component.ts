@@ -13,8 +13,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.menuItems = [
-      {label: 'Pokemons', icon: 'pi pi-fw pi-home', routerLink: ['/pokemons']},
-      {label: 'Coach', icon: 'pi pi-fw pi-user', routerLink: ['/coach']}
+      {label: 'Pokemons', icon: 'fas fa-home fa-lg', routerLink: ['/pokemons']},
+      {label: 'Coach', icon: 'fas fa-user fa-lg', routerLink: ['/coach']}
     ]
   }
 }
