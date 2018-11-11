@@ -30,10 +30,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - [Bootstrapp 4](https://getbootstrap.com/docs/4.0)
  - [Pokemon API](https://pokeapi.co)
  - [Primefaces](https://www.primefaces.org/primeng)
+ - [Sass](https://sass-lang.com)
  - [Ramda](https://ramdajs.com)
  - Html5
  - Css3
 
 ## Important!
-The Pokemon [Pokemon API](https://pokeapi.co) pagination is broken!
+The [Pokemon API](https://pokeapi.co) pagination is broken!
 Because of that the pagination was implemented manually in this repo

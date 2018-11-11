@@ -36,8 +36,8 @@ export class PokemonsComponent implements OnInit {
     }
   }
 
-  private updateGrid () {
-    this.pokemonsService.get().subscribe(pokemons => {
+  public updateGrid(skip = 0) {
+    this.pokemonsService.get(skip).subscribe(pokemons => {
       this.pokemons = pokemons
       this.totalRecords = this.pokemonsService.totalRecords
     })
