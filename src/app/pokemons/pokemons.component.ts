@@ -29,11 +29,8 @@ export class PokemonsComponent implements OnInit {
   public searchPokemon() {
     const { searchParameter } = this.searchForm.value
 
-    if (searchParameter) {
-      this.pokemonsService.getByIdOrName(searchParameter).subscribe(pokemon => this.pokemon = pokemon)
-    } else {
-      this.updateGrid()
-    }
+    this.pokemonsService.getByIdOrName(searchParameter).subscribe(pokemon => this.pokemon = pokemon)
+    $('#pokemonModal').modal('show')
   }
 
   public updateGrid(skip = 0) {

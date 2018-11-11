@@ -30,6 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - [Bootstrapp 4](https://getbootstrap.com/docs/4.0)
  - [Pokemon API](https://pokeapi.co)
  - [Primefaces](https://www.primefaces.org/primeng)
+ - [Fontawesome](https://fontawesome.com)
  - [Sass](https://sass-lang.com)
  - [Ramda](https://ramdajs.com)
  - Html5
