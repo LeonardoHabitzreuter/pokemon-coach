@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { NgModule } from '@angular/core'
+import { NgModule, ErrorHandler } from '@angular/core'
 import { RouterModule, PreloadAllModules } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http'
 
@@ -12,6 +12,7 @@ import { ROUTES } from './app.routes'
 
 import { AppComponent } from './app.component'
 import { NotFoundComponent } from './not-found/not-found.component'
+import { ApplicationErrorHandler } from 'shared/error-handler'
 import { PokemonsComponent } from './pokemons/pokemons.component'
 import { PokemonModalComponent } from './pokemons/modal/component'
 
@@ -31,7 +32,7 @@ import { PokemonModalComponent } from './pokemons/modal/component'
     SharedModule.forRoot(),
     RouterModule.forRoot(ROUTES, {preloadingStrategy: PreloadAllModules})
   ],
-  providers: [],
+  providers: [{provide: ErrorHandler, useClass: ApplicationErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

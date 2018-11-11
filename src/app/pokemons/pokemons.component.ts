@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { MessageService } from 'primeng/api'
 
 import { PokemonsService } from './pokemons.service'
 import { Pokemon } from './pokemon'
@@ -15,7 +16,7 @@ export class PokemonsComponent implements OnInit {
   pokemon: Pokemon
   totalRecords = 10
 
-  constructor(private pokemonsService: PokemonsService, private formBuilder: FormBuilder) {
+  constructor(private messageService: MessageService, private pokemonsService: PokemonsService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
@@ -29,8 +30,21 @@ export class PokemonsComponent implements OnInit {
   public searchPokemon() {
     const { searchParameter } = this.searchForm.value
 
-    this.pokemonsService.getByIdOrName(searchParameter).subscribe(pokemon => this.pokemon = pokemon)
-    $('#pokemonModal').modal('show')
+    this.pokemonsService.getByIdOrName(searchParameter).subscribe(
+      pokemon => {
+        this.pokemon = pokemon
+        $('#pokemonModal').modal('show')
+      },
+      error => {
+        if (error.status === 0) {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'The pokémon was not found',
+            detail: 'Try to search for another pokémon'
+          })
+        }
+      }
+    )
   }
 
   public updateGrid(skip = 0) {
