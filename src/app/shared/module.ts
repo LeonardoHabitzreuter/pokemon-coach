@@ -6,7 +6,8 @@ import { InputTextModule } from 'primeng/inputtext'
 import { ButtonModule } from 'primeng/button'
 import { PaginatorModule } from 'primeng/paginator'
 import { MessageService } from 'primeng/api'
-import { ToastModule } from 'primeng/toast';
+import { ToastModule } from 'primeng/toast'
+import { TableModule } from 'primeng/table'
 
 import { ContentHeaderComponent } from './content-header/content-header.component'
 import { PokemonsService } from 'app/pokemons/pokemons.service'
@@ -14,8 +15,8 @@ import { StorageService } from './storage/storage-service'
 
 @NgModule({
   declarations: [ContentHeaderComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, ButtonModule, PaginatorModule, ToastModule, InputTextModule],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, ButtonModule, PaginatorModule, ToastModule, ContentHeaderComponent]
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ButtonModule, PaginatorModule, ToastModule, TableModule, InputTextModule],
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, ButtonModule, PaginatorModule, ToastModule, TableModule, ContentHeaderComponent]
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
