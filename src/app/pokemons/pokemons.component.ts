@@ -4,6 +4,7 @@ import { MessageService } from 'primeng/api'
 
 import { PokemonsService } from './pokemons.service'
 import { Pokemon } from './pokemon'
+import { show as showModal } from './modal/modal'
 
 @Component({
   selector: 'app-pokemons',
@@ -33,7 +34,7 @@ export class PokemonsComponent implements OnInit {
     this.pokemonsService.getByIdOrName(searchParameter).subscribe(
       pokemon => {
         this.pokemon = pokemon
-        $('#pokemonModal').modal('show')
+        showModal()
       },
       error => {
         if (error.status === 0) {
