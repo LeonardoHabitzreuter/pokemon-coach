@@ -1,6 +1,8 @@
 # pokemon-coach
 You be able to see all your Pókemons and your personal profile
 
+[![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -15,7 +17,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Jest](https://github.com/facebook/jest).
 
 ## Running end-to-end tests
 
@@ -33,9 +35,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  - [Fontawesome](https://fontawesome.com)
  - [Sass](https://sass-lang.com)
  - [Ramda](https://ramdajs.com)
+ - [Jest](https://jestjs.io)
  - Html5
  - Css3
 
-## Important!
-The [Pokemon API](https://pokeapi.co) pagination is broken!
-Because of that the pagination was implemented manually in this repo
+## Important! Technical difficulties:
+ - The [Pokemon API](https://pokeapi.co) pagination is broken! Because of that the pagination was implemented manually in this repo.
+ - The [pokémons endpoint](https://pokeapi.co/api/v2/pokemon) return too few fields, just the pokémon's name and his URL. So I could barely show the pokémons information inside the grid.
