@@ -35,7 +35,7 @@ export class PokemonsService {
   }
 
   public getFavoritePokemons(): Promise<Pokemon[]> {
-    return new Promise(resolve => resolve(JSON.parse(localStorage.getItem(FAVORITES_POKEMONS_STORAGE_KEY)) || []))
+    return new Promise(resolve => resolve(this.storageService.get(FAVORITES_POKEMONS_STORAGE_KEY) || []))
   }
 
   public addToFavoritesList(pokemon: Pokemon) {
