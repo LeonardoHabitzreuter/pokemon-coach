@@ -5,4 +5,5 @@ export class Pokemon {
   height: number
   order: number
   weight: number
+  abilities: any[]
 }
