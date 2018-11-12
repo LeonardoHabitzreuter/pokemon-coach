@@ -42,7 +42,7 @@
               <strong class="mx-1">Skills</strong>
               <i class="fas fa-magic"></i>
             </div>
-            <div *ngFor="let skill of pokemon?.abilities">
+            <div [id]="'skill' + skill.ability.name" *ngFor="let skill of pokemon?.abilities">
               <i class="fas fa-tag dark-yellow m-2"></i>
               <strong>{{skill.ability.name}}</strong>
             </div>

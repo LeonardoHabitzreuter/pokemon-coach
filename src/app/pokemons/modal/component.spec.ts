@@ -54,6 +54,11 @@ describe('PokemonModalComponent', () => {
     it('should render bulbasaur as the title', async(() => {
       expect(compiled.querySelector('#pokemonModalLabel').textContent).toContain('bulbasaur')
     }))
+
+    it('should render all the skills', async(() => {
+      expect(compiled.querySelector('#skillattack').textContent).toContain('attack')
+      expect(compiled.querySelector('#skillprotect').textContent).toContain('protect')
+    }))
   })
 })
 
