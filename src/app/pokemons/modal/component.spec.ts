@@ -6,7 +6,9 @@ import { PokemonsService } from 'app/pokemons/pokemons.service'
 import { MessageService } from 'primeng/api'
 
 describe('PokemonModalComponent', () => {
-  const messageServiceStub: Partial<MessageService> = {}
+  const messageServiceStub: Partial<MessageService> = {
+    add: jest.fn()
+  }
   const pokemonsServiceStub: Partial<PokemonsService> = {
     addToFavoritesList: jest.fn().mockResolvedValue(null)
   }
@@ -26,12 +28,12 @@ describe('PokemonModalComponent', () => {
 
   it('should create the component', async(() => {
     const fixture = TestBed.createComponent(PokemonModalComponent)
-    const app = fixture.debugElement.componentInstance
-    expect(app).toBeTruthy()
+    const component = fixture.debugElement.componentInstance
+    expect(component).toBeTruthy()
   }))
 
   describe('Pokemon with no empty props', () => {
-    let compiled
+    let component
     const pokemon = new Pokemon()
     pokemon.id = 1
     pokemon.name = 'bulbasaur'
@@ -48,16 +50,21 @@ describe('PokemonModalComponent', () => {
       const fixture = TestBed.createComponent(PokemonModalComponent)
       fixture.componentInstance.pokemon = pokemon
       fixture.detectChanges()
-      compiled = fixture.debugElement.nativeElement
+      component = fixture.debugElement.nativeElement
     })
 
     it('should render bulbasaur as the title', async(() => {
-      expect(compiled.querySelector('#pokemonModalLabel').textContent).toContain('bulbasaur')
+      expect(component.querySelector('#pokemonModalLabel').textContent).toContain('bulbasaur')
     }))
 
     it('should render all the skills', async(() => {
-      expect(compiled.querySelector('#skillattack').textContent).toContain('attack')
-      expect(compiled.querySelector('#skillprotect').textContent).toContain('protect')
+      expect(component.querySelector('#skillattack').textContent).toContain('attack')
+      expect(component.querySelector('#skillprotect').textContent).toContain('protect')
+    }))
+
+    it('should add the pokemon to favorite list when click the button', async(() => {
+      component.querySelector('#favoritePokemonButton').click()
+      expect(pokemonsServiceStub.addToFavoritesList).toHaveBeenCalledWith(pokemon)
     }))
   })
 })
