@@ -62,10 +62,21 @@ describe('PokemonModalComponent', () => {
       expect(component.querySelector('#skillprotect').textContent).toContain('protect')
     }))
 
-    it('should add the pokemon to favorite list when click the button', async(() => {
-      component.querySelector('#favoritePokemonButton').click()
-      expect(pokemonsServiceStub.addToFavoritesList).toHaveBeenCalledWith(pokemon)
-    }))
+    describe('Adding the pokemon to the favorites list', () => {
+      beforeEach(() => {
+        component.querySelector('#favoritePokemonButton').click()
+      })
+
+      it('should add the pokemon to favorite list when click the button', async(() => {
+        expect(pokemonsServiceStub.addToFavoritesList).toHaveBeenCalledWith(pokemon)
+      }))
+
+      it('should give a feedback to the user when the pokemon was added', async(() => {
+        expect(messageServiceStub.add).toHaveBeenCalledWith(expect.objectContaining({
+          detail: 'The pokemon was added to your favorites list'
+        }))
+      }))
+    })
   })
 })
 
