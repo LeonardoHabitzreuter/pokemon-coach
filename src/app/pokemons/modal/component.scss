@@ -9,3 +9,11 @@ $grey: #a6a6a6;
 .dark-yellow {
   color: #deab12
 }
+
+.increaseOnHover {
+  transition: all 1s
+}
+
+.increaseOnHover:hover {
+  transform: scale(1.3)
+}
