@@ -1,5 +1,5 @@
 # pokemon-coach
-You be able to see all your Pókemons and your personal profile
+You'll be able to see all your Pókemons and your personal profile
 
 [![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
 
